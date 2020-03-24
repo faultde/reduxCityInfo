@@ -13,10 +13,18 @@ export default class WeatherDetails extends React.Component{
 
     return(
       <div>
-      <h1>WeatherDetails</h1>
-      <div>
-      {this.props.cityName.name}
-      </div>
+      <h1>Weather-Details</h1>
+      <h1 class="ui header">
+      {this.props.cityName}
+      </h1>
+      <p>
+      lat : {this.props.coord.lat}
+      <br/>
+      lon : {this.props.coord.lon}
+      </p>
+      <p>
+      {this.props.weather}
+      </p>
       </div>
     )
   }
@@ -24,7 +32,10 @@ export default class WeatherDetails extends React.Component{
 
 const mapStateToProps = (state) =>{
   return {
-    cityName: state.currentCity
+    city: state.currentCity,
+    cityName: state.currentCity.name,
+    coord: state.currentCity.coord,
+    weather: state.currentCity.weather
   }
 }
 export default connect(mapStateToProps)(WeatherDetails);
