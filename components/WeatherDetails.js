@@ -23,7 +23,10 @@ export default class WeatherDetails extends React.Component{
       lon : {this.props.coord.lon}
       </p>
       <p>
-      {this.props.weather}
+      {this.props.weather[0].description}
+      </p>
+      <p>
+      current temp: {Math.round(this.props.main.temp * 9/5 - 459.67)} °F
       </p>
       </div>
     )
@@ -35,7 +38,8 @@ const mapStateToProps = (state) =>{
     city: state.currentCity,
     cityName: state.currentCity.name,
     coord: state.currentCity.coord,
-    weather: state.currentCity.weather
+    weather: state.currentCity.weather,
+    main: state.currentCity.main
   }
 }
 export default connect(mapStateToProps)(WeatherDetails);
