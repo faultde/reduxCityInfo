@@ -14,11 +14,10 @@ export default class SearchBar extends React.Component{
   render(){
     console.log(this.props.cityName)
     return (
-      <div className="ui fluid action input">
-        <input type="text" placeholder="Search..." 
-        onChange={(e)=>this.setState({textValue: e.target.value})}
-        />
-        <div className="ui button" onClick={()=> this.props.fetchWeather(this.state.textValue)}>Search</div>
+        <div className="ui fluid action input row divider">
+          <input type="text" placeholder="Search..." 
+                 onChange={(e)=>this.setState({textValue: e.target.value})}/>
+          <div className="ui button" onClick={()=> this.props.fetchWeather(this.state.textValue)}>Search</div>
       </div>
     )
   }
