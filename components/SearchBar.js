@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { fetchWeather }  from '../actions';
 
 
+
 export default class SearchBar extends React.Component{
   state = {
     textValue: ''
@@ -11,14 +12,22 @@ export default class SearchBar extends React.Component{
     
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.fetchWeather(this.state.textValue)
+  }
+
   render(){
     console.log(this.props.cityName)
     return (
-        <div className="ui fluid action input row divider">
+        <form className="ui fluid action input row divider"
+              style={{paddingBottom:50}}
+              onSubmit={this.handleSubmit}>
           <input type="text" placeholder="Search..." 
-                 onChange={(e)=>this.setState({textValue: e.target.value})}/>
+                 onChange={(e)=>this.setState({textValue: e.target.value})} 
+                 />
           <div className="ui button" onClick={()=> this.props.fetchWeather(this.state.textValue)}>Search</div>
-      </div>
+      </form>
     )
   }
 }
