@@ -6,7 +6,7 @@ export default class App extends React.Component{
   render(){
     return (
       <div className="ui two column grid container"> 
-      <h1 className="header row centered">Weather App</h1>
+      <h1 className="header row centered">ReduxCityInfo</h1>
         <SearchBar/>
         <WeatherDetails/>
       </div>

@@ -33,7 +33,7 @@ export default class WeatherDetails extends React.Component{
           </p>
           <p>
           <br/>
-          {this.convertTime(this.props.time /3600)}
+          Current Time : {this.convertTime(this.props.time /3600)}
           </p>
         </div>
         <div className="ui segment two column row">
