@@ -1,10 +1,20 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import moment from 'moment';
 
 
 
 export default class WeatherDetails extends React.Component{
 
+  convertTime = (tz)=>{
+    
+    let utcTime = moment({hour: new Date().getUTCHours(), minute: new Date().getUTCMinutes()});
+    utcTime.add(tz, 'hours');
+    let result = utcTime.format("h:mm");
+  
+  return result
+  
+  }
   render(){
     let time = 'test';
 
@@ -22,11 +32,8 @@ export default class WeatherDetails extends React.Component{
           LAT : {this.props.coord.lat} / / LON : {this.props.coord.lon}
           </p>
           <p>
-          {this.props.time /3600 }
           <br/>
-          {
-          
-          }
+          {this.convertTime(this.props.time /3600)}
           </p>
         </div>
         <div className="ui segment two column row">
