@@ -7,7 +7,7 @@ import moment from 'moment';
 export default class WeatherDetails extends React.Component{
 
   state = {
-    time: ''
+    time: 'loading'
   }
   
   convertTime = (tz) =>{
@@ -20,7 +20,7 @@ export default class WeatherDetails extends React.Component{
     return newT
 
   }
-  componentWillReceiveProps() {
+  componentDidUpdate() {
      setInterval( () => {
       const newTime = this.convertTime(this.props.time/3600);
       this.setState({time: newTime })
