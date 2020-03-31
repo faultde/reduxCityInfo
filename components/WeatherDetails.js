@@ -6,18 +6,27 @@ import moment from 'moment';
 
 export default class WeatherDetails extends React.Component{
 
-  convertTime = (tz)=>{
+  state = {
+    time: ''
+  }
+  
+  convertTime = (tz) =>{
     
     let utcTime = moment({hour: new Date().getUTCHours(), minute: new Date().getUTCMinutes()});
     utcTime.add(tz, 'hours');
     let result = utcTime.format("h:mm");
-  
-  return result
-  
+    let newT = result;
+
+    return newT
+
+  }
+  componentWillReceiveProps() {
+     setInterval( () => {
+      const newTime = this.convertTime(this.props.time/3600);
+      this.setState({time: newTime })
+    }, 1000);
   }
   render(){
-    let time = 'test';
-
     if(!this.props.cityName){
      return <h1 className="ui header row centered">Please Search City</h1>
     }
@@ -33,7 +42,7 @@ export default class WeatherDetails extends React.Component{
           </p>
           <p>
           <br/>
-          Current Time : {this.convertTime(this.props.time /3600)}
+          Current Time : { this.state.time}
           </p>
         </div>
         <div className="ui segment two column row">

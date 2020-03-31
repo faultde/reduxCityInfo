@@ -8,9 +8,6 @@ export default class SearchBar extends React.Component{
   state = {
     textValue: ''
   }
-  componentDidMount(){
-    
-  }
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -18,7 +15,6 @@ export default class SearchBar extends React.Component{
   }
 
   render(){
-    console.log(this.props.cityName)
     return (
         <form className="ui fluid action input row divider"
               style={{paddingBottom:50}}
