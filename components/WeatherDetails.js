@@ -4,7 +4,7 @@ import moment from 'moment';
 import {fetchGeocode} from '../actions';
 
 
-export default class WeatherDetails extends React.Component{
+class WeatherDetails extends React.Component{
 
   state = {
     time: 'loading'
@@ -22,7 +22,7 @@ export default class WeatherDetails extends React.Component{
   }
 
   componentDidUpdate() {
-   //this.props.fetchGeocode(`${this.props.coord.lat},${this.props.coord.lon}`)
+   this.props.fetchGeocode(`${this.props.coord.lat},${this.props.coord.lon}`)
 
     //  setInterval( () => {
     //   const newTime = this.convertTime(this.props.time/3600);
@@ -43,7 +43,6 @@ export default class WeatherDetails extends React.Component{
           <p>
           LAT : {this.props.coord.lat} / / LON : {this.props.coord.lon}
           </p>
-          <div className="ui button" onClick={()=> this.props.fetchGeocode(`${this.props.coord.lat},${this.props.coord.lon}`) }>test</div>
           <p>
           <br/>
           Current Time : { this.convertTime(this.props.time/3600)}
