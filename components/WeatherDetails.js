@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import moment from 'moment';
-
+import {fetchGeocode} from "../apis/geocode";
 
 
 export default class WeatherDetails extends React.Component{
@@ -20,11 +20,13 @@ export default class WeatherDetails extends React.Component{
     return newT
 
   }
+
   componentDidUpdate() {
-     setInterval( () => {
-      const newTime = this.convertTime(this.props.time/3600);
-      this.setState({time: newTime })
-    }, 1000);
+
+    //  setInterval( () => {
+    //   const newTime = this.convertTime(this.props.time/3600);
+    //   this.setState({time: newTime })
+    // }, 1000);
   }
   render(){
     if(!this.props.cityName){
@@ -39,6 +41,7 @@ export default class WeatherDetails extends React.Component{
           </h1>
           <p>
           LAT : {this.props.coord.lat} / / LON : {this.props.coord.lon}
+          
           </p>
           <p>
           <br/>
@@ -64,7 +67,7 @@ export default class WeatherDetails extends React.Component{
 }
 
 const mapStateToProps = (state) =>{
-  console.log(state)
+ // console.log(state)
   return {
     city: state.currentCity,
     cityName: state.currentCity.name,
