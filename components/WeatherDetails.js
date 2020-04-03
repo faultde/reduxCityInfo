@@ -35,7 +35,7 @@ export default class WeatherDetails extends React.Component{
       <div className="ui fluid row">
         <div className="ui two column row segment">
           <h1 className="ui header ">
-            {this.props.cityName}
+            {this.props.cityName} - {this.props.country.country}
           </h1>
           <p>
           LAT : {this.props.coord.lat} / / LON : {this.props.coord.lon}
@@ -64,13 +64,15 @@ export default class WeatherDetails extends React.Component{
 }
 
 const mapStateToProps = (state) =>{
+  console.log(state)
   return {
     city: state.currentCity,
     cityName: state.currentCity.name,
     coord: state.currentCity.coord,
     weather: state.currentCity.weather,
     main: state.currentCity.main,
-    time: state.currentCity.timezone
+    time: state.currentCity.timezone,
+    country: state.currentCity.sys
   }
 }
 export default connect(mapStateToProps)(WeatherDetails);
