@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import moment from 'moment';
-import {fetchGeocode} from "../apis/geocode";
+import {fetchGeocode} from '../actions';
 
 
 export default class WeatherDetails extends React.Component{
@@ -22,7 +22,8 @@ export default class WeatherDetails extends React.Component{
   }
 
   componentDidUpdate() {
-    fetchGeocode(`${this.props.coord.lat},${this.props.coord.lon}`)
+   //this.props.fetchGeocode(`${this.props.coord.lat},${this.props.coord.lon}`)
+
     //  setInterval( () => {
     //   const newTime = this.convertTime(this.props.time/3600);
     //   this.setState({time: newTime })
@@ -41,8 +42,8 @@ export default class WeatherDetails extends React.Component{
           </h1>
           <p>
           LAT : {this.props.coord.lat} / / LON : {this.props.coord.lon}
-          
           </p>
+          <div className="ui button" onClick={()=> this.props.fetchGeocode(`${this.props.coord.lat},${this.props.coord.lon}`) }>test</div>
           <p>
           <br/>
           Current Time : { this.convertTime(this.props.time/3600)}
@@ -67,7 +68,7 @@ export default class WeatherDetails extends React.Component{
 }
 
 const mapStateToProps = (state) =>{
- // console.log(state)
+  console.log(state)
   return {
     city: state.currentCity,
     cityName: state.currentCity.name,
@@ -78,4 +79,4 @@ const mapStateToProps = (state) =>{
     country: state.currentCity.sys
   }
 }
-export default connect(mapStateToProps)(WeatherDetails);
+export default connect(mapStateToProps, {fetchGeocode})(WeatherDetails);

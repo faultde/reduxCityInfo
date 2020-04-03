@@ -10,6 +10,16 @@ switch(action.type){
 }
 };
 
+const cityCoordsReducer = (state = "", action) => {
+switch(action.type){
+  case 'FETCH_GEOCODE':
+    return action.payload
+  default:
+    return state;
+}
+};
+
 export default combineReducers({
-  currentCity: currentCityReducer
+  currentCity: currentCityReducer,
+  cityCoords: cityCoordsReducer
 })
