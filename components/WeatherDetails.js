@@ -22,7 +22,7 @@ export default class WeatherDetails extends React.Component{
   }
 
   componentDidUpdate() {
-
+    fetchGeocode(`${this.props.coord.lat},${this.props.coord.lon}`)
     //  setInterval( () => {
     //   const newTime = this.convertTime(this.props.time/3600);
     //   this.setState({time: newTime })
@@ -45,7 +45,7 @@ export default class WeatherDetails extends React.Component{
           </p>
           <p>
           <br/>
-          Current Time : { this.state.time}
+          Current Time : { this.convertTime(this.props.time/3600)}
           </p>
         </div>
         <div className="ui segment two column row">
