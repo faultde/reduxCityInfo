@@ -2,3 +2,6 @@ Paused live time to prevent update loop/console spam
 
 add geocode api to redux
 test map visualization
+
+latlon
+ //LAT : {this.props.coord.lat} // LON : {this.props.coord.lon}

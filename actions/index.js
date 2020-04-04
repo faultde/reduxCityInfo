@@ -7,7 +7,7 @@ export const fetchWeather = (cityName) => {
   return async (dispatch)=>{
     const clientId = '9d0768038f52f1b47a7f998a6c7c919f';
     const response = await openWeather.get(`weather?q=${cityName}&appid=${clientId}` );
-    console.log("fetchWeather:" + response.data)
+    console.log("fetchWeather called")
 
     dispatch({
       type: 'FETCH_WEATHER',
@@ -26,11 +26,11 @@ export const fetchGeocode = (coords) => {
     }
     });
 
-    console.log("fetchGeocode: " + response)
+    console.log("fetchGeocode called")
 
     dispatch({
       type: 'FETCH_GEOCODE',
-      payload: response.data.results
+      payload: response.data.results[2]
     })
   }
 }

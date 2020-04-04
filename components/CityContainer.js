@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from 'react-redux';
 import moment from 'moment';
 import {fetchGeocode} from '../actions';
+import MapDisplay from './MapDisplay';
 
 let map = "https://i.ibb.co/ss263DC/map.png";
 
@@ -27,10 +28,11 @@ class CityContainer extends React.Component{
           <h1 className="ui header centered segment ">
             {this.props.cityName} - {this.props.country.country}
           </h1>
-          <img className="ui centered medium image segment" src={map}/>
+          <MapDisplay map={map} />
           <div className="ui header centered segment">
           <p>
-          LAT : {this.props.coord.lat} / / LON : {this.props.coord.lon}
+         
+          {this.props.address}
           <br/>
           Current Time : { this.convertTime(this.props.time/3600)}
           <br/>
@@ -49,7 +51,8 @@ const mapStateToProps = (state) =>{
     weather: state.currentCity.weather,
     main: state.currentCity.main,
     time: state.currentCity.timezone,
-    country: state.currentCity.sys
+    country: state.currentCity.sys,
+    address: state.cityCoords.formatted_address
   }
 }
 
