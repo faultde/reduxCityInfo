@@ -21,14 +21,14 @@ class CityContainer extends React.Component{
     return newT
 
   }
-
+  
   render(){
     return(
         <div className="ui two column row segment">
           <h1 className="ui header centered segment ">
             {this.props.cityName} - {this.props.country.country}
           </h1>
-          <MapDisplay map={map} />
+          <MapDisplay coords={this.props.geometry} />
           <div className="ui header centered segment">
           <p>
          
@@ -52,7 +52,8 @@ const mapStateToProps = (state) =>{
     main: state.currentCity.main,
     time: state.currentCity.timezone,
     country: state.currentCity.sys,
-    address: state.cityCoords.formatted_address
+    address: state.cityCoords.formatted_address,
+    geometry:state.cityCoords.geometry
   }
 }
 
