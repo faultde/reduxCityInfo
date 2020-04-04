@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchBar from './SearchBar';
-import WeatherDetails from './WeatherDetails';
+import InfoContainer from './InfoContainer';
 
 export default class App extends React.Component{
   render(){
@@ -8,7 +8,7 @@ export default class App extends React.Component{
       <div className="ui two column grid container"> 
       <h1 className="header row centered">ReduxCityInfo</h1>
         <SearchBar/>
-        <WeatherDetails/>
+        <InfoContainer/>
       </div>
     )
 }
