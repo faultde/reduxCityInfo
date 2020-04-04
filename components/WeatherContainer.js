@@ -1,9 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-let cloud = "https://doc-04-98-docs.googleusercontent.com/docs/securesc/p7bdvu7f8n3fj0ipdo24af359k1efcep/46lpuh92e79v2tlajo46nbkps957f3ch/1585963425000/14729612505334471972/14729612505334471972/1tOXqrsleBD0CE1opZkOqpV6cwQhX59Tc?authuser=0";
 
-let sun = "https://doc-00-98-docs.googleusercontent.com/docs/securesc/p7bdvu7f8n3fj0ipdo24af359k1efcep/dsepk89dn86lfgvpa1qdvccfgbk06sf7/1585962000000/14729612505334471972/14729612505334471972/1iwR0Lpubbv_uk21Karje92DJ_6kjR3qE?authuser=0"
+let sun = "https://i.ibb.co/9yZdBRx/sunny.png";
 
 class WeatherContainer extends React.Component{
   state = {
@@ -18,7 +17,7 @@ class WeatherContainer extends React.Component{
         <h1 className="ui header centered segment">
            Current Weather
           </h1>
-          <img class="ui centered medium image segment" src={cloud}/>
+          <img className="ui centered medium image segment" src={sun}/>
           <div className="ui header centered segment">
           <p>
           {this.props.weather[0].description}

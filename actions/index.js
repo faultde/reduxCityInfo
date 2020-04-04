@@ -3,7 +3,6 @@ import openWeather from '../apis/openWeather';
 import axios from 'axios';
 
 
-
 export const fetchWeather = (cityName) => {
   return async (dispatch)=>{
     const clientId = '9d0768038f52f1b47a7f998a6c7c919f';
@@ -31,7 +30,7 @@ export const fetchGeocode = (coords) => {
 
     dispatch({
       type: 'FETCH_GEOCODE',
-      payload: response.data
+      payload: response.data.results
     })
   }
 }
