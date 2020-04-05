@@ -17,7 +17,8 @@ export default class MapDisplay extends React.Component{
           defaultZoom={13}
         >
         </GoogleMapReact>
-      </div>
+        </div>
+
     )
     }
   }
