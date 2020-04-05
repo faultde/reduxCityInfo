@@ -7,12 +7,12 @@ import MapDisplay from './MapDisplay';
 class CityContainer extends React.Component{
   render(){
     return(
-        <div className="ui two column row segment" style={{height:"50vh"}}>
+        <div className="ui twelve wide column" style={{height:"40vh", width:"40vh"}}>
           <h1 className="ui header centered">
             {this.props.cityName} - {this.props.country.country}
           </h1>
           <MapDisplay coords={this.props.geometry} />
-          <div className="ui header centered segment">
+          <div className="ui header centered">
           <p>
           {this.props.address}
           </p>

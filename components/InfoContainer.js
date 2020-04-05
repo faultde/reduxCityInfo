@@ -22,11 +22,11 @@ class InfoContainer extends React.Component{
   }
   render(){
     if(!this.props.cityName){
-     return <h1 className="ui header row centered">Please Search City</h1>
+     return <h1 className="ui header row centered" style={{color:'white'}}>Please Search City</h1>
     }
 
     return(
-      <div className="ui fluid row">
+      <div className="ui sixteen wide column row centered segment">
         <CityContainer/>
         <WeatherContainer/>
       </div>

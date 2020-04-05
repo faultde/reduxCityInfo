@@ -10,7 +10,7 @@ export default class MapDisplay extends React.Component{
     }else{
 
          return(
-        <div style={{ height: '50%', width: '100%' }}>
+        <div style={{ height: '70%', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyCoBX84ZD7aE_tkvLT4faEUfX6qF69eSAA" }}
           center={{lat:this.props.coords.location.lat,lng:this.props.coords.location.lng}}

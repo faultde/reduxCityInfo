@@ -23,12 +23,14 @@ class WeatherContainer extends React.Component{
 
   render(){
     return(
-      <div className="ui segment two column row">
+      <div className="ui three wide column segment">
           <h1 className="ui header centered"> City Info</h1>
-          <h1 className="ui header centered divider">Current Time: { this.convertTime(this.props.time/3600)}</h1>
-          <h1 className="ui header centered">Current temp: {Math.round(this.props.main.temp * 9/5 - 459.67)} °F</h1>
+          <h2 className="ui header centered" style={{marginTop: "40%"}}>{ this.convertTime(this.props.time/3600)}</h2>
+          <h3 className="ui header centered" style={{marginTop:'40%'}}>{Math.round(this.props.main.temp-273.15)} °C / {Math.round(this.props.main.temp * 9/5 - 459.67)} °F</h3>
+          <div style={{marginTop: "20%"}}>
           <img className="ui centered image" src={`https://openweathermap.org/img/wn/${this.props.weather[0].icon}@2x.png`}/>
-          <h1 className="ui header centered"> {this.props.weather[0].description}</h1>
+          <h2 className="ui header centered"> {this.props.weather[0].description}</h2>
+          </div>
       </div>
     )
   }
